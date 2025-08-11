@@ -7,7 +7,7 @@ let daftar = [
 
 const belanja = (pembayaran, daftar) => {
   daftar.forEach((el, i) => {
-    console.log(`${i + 1}. ${el.nama} - ${el.harga}`)
+    console.log(`${i + 1}. ${el.nama} - Rp. ${el.harga.toLocaleString('id-ID')}`)
     total += el.harga
   }, total = 0)
 
@@ -16,11 +16,11 @@ const belanja = (pembayaran, daftar) => {
   let hasil = pembayaran - setelahDiskon
 
   console.log("====== Rincian Belanja Sepatu =====")
-  console.log(`Total Belanja = Rp. ${total}`)
+  console.log(`Total Belanja = Rp. ${total.toLocaleString('id-ID')}`)
   console.log(`Diskon = ${diskon}%`)
-  console.log(`Total Setelah Diskon = Rp. ${setelahDiskon}`)
-  console.log(`Pembayaran = Rp. ${pembayaran}`)
-  console.log(`Kembalian = Rp. ${hasil}`)
+  console.log(`Total Setelah Diskon = Rp. ${setelahDiskon.toLocaleString('id-ID')}`)
+  console.log(`Pembayaran = Rp. ${pembayaran.toLocaleString('id-ID')}`)
+  console.log(`Kembalian = Rp. ${hasil.toLocaleString('id-ID')}`)
 }
 
 belanja(1200000, daftar)

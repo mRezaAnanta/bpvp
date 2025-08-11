@@ -1,0 +1,39 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!--   <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!--     <title></title> -->
+<!--     <link href="css/style.css" rel="stylesheet"> -->
+<!--   </head> -->
+<!--   <body> -->
+<!--     <h1>Data Tinggi Badan yang Diurutkan</h1> -->
+<!--     <ul id="list"></ul> -->
+<!--   </body> -->
+<!-- </html> -->
+
+<html>
+  <h1>Data Tinggi Badan yang Diurutkan</h1>
+  <ul id="list"></ul>
+</html>
+
+<script>
+  let tinggi = [
+    { nama: "Rose", t: 178 },
+    { nama: "Magnolia", t: 153 },
+    { nama: "Daisy", t: 165 },
+    { nama: "Jasmine", t: 161 },
+    { nama: "Violet", t: 159 },
+  ]
+  tinggi.sort((a, b) => a.nama.localeCompare(b.nama))
+  // tinggi.sort((a, b) => b.t - a.t)
+
+  const container = document.getElementById('list')
+
+  for (let i in tinggi) {
+    console.log(i, tinggi[i].nama, tinggi[i].t)
+    const newEl = document.createElement('li')
+    newEl.innerText = `${tinggi[i].nama} : ${tinggi[i].t} cm`
+    container.appendChild(newEl)
+  }
+</script>

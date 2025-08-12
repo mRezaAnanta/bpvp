@@ -1,11 +1,15 @@
-const showBiodata = (nama, umur, asal, sekolah, tahunLulus, kategoriKondisi, version, author) => {
-  console.log("=== BIODATA SISWA ===")
-  console.log(`Nama             : ${nama}`)
-  console.log(`Umur             : ${umur} tahun`)
-  console.log(`Asal             : ${asal}`)
-  console.log(`Sekolah          : ${sekolah}`)
-  console.log(`Tahun Lulus      : ${tahunLulus}`)
-  console.log(`Kategori Kondisi : ${kategoriKondisi}\n`)
+const logikaKategori = require('./logikaKategori.js')
+
+const showBiodata = (data, version, author) => {
+  data.forEach((el, i) => {
+    console.log(`=== BIODATA SISWA ${i + 1} ===`)
+    console.log(`Nama             : ${el.nama}`)
+    console.log(`Umur             : ${el.umur} tahun`)
+    console.log(`Asal             : ${el.asal}`)
+    console.log(`Sekolah          : ${el.sekolah}`)
+    console.log(`Tahun Lulus      : ${el.tahunLulus}`)
+    console.log(`Kategori Kondisi : ${logikaKategori(el.tahunLulus)}\n`)
+  })
 
   console.log("=== INFO APLIKASI ===")
   console.log(`Versi            : ${version}`)

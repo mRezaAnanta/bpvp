@@ -1,5 +1,5 @@
 const logikaKategori = (tahunLulus) => {
-  return tahunLulus < 2019 ? "Lulus Sebelum Covid" : tahunLulus < 2022 ? "Lulus Saat Covid" : "Lulus Setelah Covid"
+  return `Lulus ${tahunLulus < 2019 ? "Sebelum" : tahunLulus < 2022 ? "Saat" : "Setelah"} Covid`
 }
 
 module.exports = logikaKategori

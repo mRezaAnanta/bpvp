@@ -11,4 +11,19 @@ const readAndWriteData = (siswa) => {
   return data
 }
 
-module.exports = readAndWriteData
+const flushData = () => {
+  const fs = require("fs")
+  const path = require("path")
+
+  const filePath = path.resolve(__dirname, 'data.json')
+  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"))
+  data.splice(0)
+
+  fs.writeFileSync(filePath, JSON.stringify(data))
+  console.log("Data berhasil dihapus")
+}
+
+module.exports = {
+  readAndWriteData,
+  flushData,
+}

@@ -1,15 +1,12 @@
 const app = require('./config/aplikasi.js')
-const readAndWriteData = require('./data/siswa.js')
-const tampilkanBiodata = require('./logic/tampilkanBiodata.js')
+const database = require('./data/siswa.js')
+const showBiodata = require('./logic/tampilkanBiodata.js')
 const logikaKategori = require('./logic/logikaKategori.js')
-
-let siswa = [
-  { nama: "Richard", umur: 30, asal: "Jakarta", sekolah: "Universitas X", tahunLulus: 2018},
-  { nama: "Sukri", umur: 10, asal: "ahsdsakdasld", sekolah: "Universitas X", tahunLulus: 20234},
-]
+const data = require('./data/hard-data-siswa.js')
 
 try {
-  tampilkanBiodata(readAndWriteData(siswa), app.VERSION, app.AUTHOR)
+  showBiodata(database.readAndWriteData(data), app.VERSION, app.AUTHOR)
+  database.flushData()
 } catch (err) {
   console.log(err.message)
 }

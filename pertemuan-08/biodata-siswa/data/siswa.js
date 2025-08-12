@@ -4,14 +4,11 @@ const readAndWriteData = (siswa) => {
 
   const filePath = path.resolve(__dirname, 'data.json')
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"))
-  console.log(`Isi Awal: ${JSON.stringify(data)}`)
+  data.push(...siswa)
 
-  // data.push(...lulus)
-  //
-  // fs.writeFileSync(filePath, JSON.stringify(data))
-
+  fs.writeFileSync(filePath, JSON.stringify(data))
   console.log("Data berhasil ditambahkan dan disimpan ulang")
-  console.log(JSON.stringify(data))
+  return data
 }
 
 module.exports = readAndWriteData

@@ -73,7 +73,6 @@ exports.updateProduct = (req, res) => {
   res.status(200).json(product)
 }
 
-// FIX: delete didn't work yet
 // Menghapus data didalam array products melalui idnya
 exports.deleteProduct = (req, res) => {
   // parsing data request menjadi integer
@@ -85,7 +84,7 @@ exports.deleteProduct = (req, res) => {
   if (index === -1) return res.status(400).json({ message: 'Produk tidak ditemukan' })
 
   // hapus data didalam array products dengan index dari idnya dan kirim status 204
-  products.slice(index, 1)
+  products.splice(index, 1)
 // [Response Status 200](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200)
   res.status(204).send()
 }

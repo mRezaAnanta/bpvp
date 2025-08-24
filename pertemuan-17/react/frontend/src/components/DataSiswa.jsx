@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useSWR } from 'swr'
+import axios from 'axios'
 
 const DataSiswa = () => {
   const [data, setData] = useState([])
@@ -8,6 +11,8 @@ const DataSiswa = () => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:8000/api/siswa')
+        // const data = await axios.get('http://localhost:8000/api/siswa')
+        // const response = await fetch(`${import.meta.env.API_URL}/siswa`)
         const data = await response.json()
         const keys = Object.keys(data[0])
         console.log(keys)
